@@ -1,0 +1,283 @@
+/* =========================================================
+   Portfolio Gauthier Humeau
+   Esprit : planche de dessin technique / cartouche de plan.
+   Une seule famille (Archivo) jouée sur ses largeurs.
+   ========================================================= */
+
+/* Police Archivo hébergée avec le site (licence OFL, voir fonts/OFL.txt) */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal; font-display: swap;
+  font-weight: 100 900; font-stretch: 62% 125%;
+  src: url("fonts/archivo-latin-ext-wdth-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Archivo";
+  font-style: normal; font-display: swap;
+  font-weight: 100 900; font-stretch: 62% 125%;
+  src: url("fonts/archivo-latin-wdth-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --paper: #e9edf0;      /* papier calque froid */
+  --paper-hi: #f7f9fa;   /* fond des images et des fiches */
+  --ink: #15202d;        /* encre de plan */
+  --steel: #4b5f72;      /* texte secondaire */
+  --line: #b8c3cd;       /* traits fins */
+  --rbf: #c4122f;        /* rouge « Remove before flight » : seul accent */
+
+  --wrap: 72rem;
+  --narrow: 44rem;
+  --gut: clamp(1rem, 4vw, 2.5rem);
+
+  --f: "Archivo", "Arial Narrow", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--rbf); }
+
+:focus-visible { outline: 2px solid var(--rbf); outline-offset: 3px; }
+
+/* ---------- Bilingue : on masque la langue inactive ---------- */
+html[lang="fr"] [data-l="en"],
+html[lang="en"] [data-l="fr"] { display: none !important; }
+
+.skip {
+  position: absolute; left: -999px; top: 0;
+  background: var(--ink); color: var(--paper); padding: .5rem 1rem; z-index: 50;
+}
+.skip:focus { left: 1rem; top: 1rem; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
+.narrow > * { max-width: var(--narrow); }
+
+/* ---------- Barre du haut ---------- */
+.bar {
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.bar-inner {
+  max-width: var(--wrap); margin: 0 auto; padding: .7rem var(--gut);
+  display: flex; align-items: center; gap: 1.5rem;
+}
+.bar-name {
+  font-weight: 800; font-variation-settings: "wdth" 125;
+  text-decoration: none; letter-spacing: -.01em; margin-right: auto;
+}
+.bar-links { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; }
+.bar-links a { text-decoration: none; font-variation-settings: "wdth" 85; font-weight: 500; }
+.bar-links a:hover { text-decoration: underline; }
+
+/* Interrupteur FR / EN */
+.lang {
+  display: inline-flex; padding: 2px; gap: 2px;
+  border: 1.5px solid var(--ink); border-radius: 3px;
+  background: transparent; cursor: pointer; font: inherit;
+}
+.lang-opt {
+  padding: .15rem .5rem; font-size: .85rem; font-weight: 700;
+  font-variation-settings: "wdth" 90; color: var(--steel); border-radius: 1px;
+}
+html[lang="fr"] .lang-opt[data-opt="fr"],
+html[lang="en"] .lang-opt[data-opt="en"] { background: var(--ink); color: var(--paper); }
+
+@media (max-width: 640px) {
+  .bar-links { display: none; }
+}
+
+/* ---------- En-tête ---------- */
+.hero {
+  padding: clamp(3rem, 9vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+  border-bottom: 1.5px solid var(--ink);
+  /* quadrillage de planche à dessin, très léger */
+  background-image:
+    linear-gradient(to right, rgb(21 32 45 / .055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(21 32 45 / .055) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.hero-name {
+  margin: 0;
+  font-size: clamp(3.25rem, 12vw, 8.5rem);
+  line-height: .86;
+  font-weight: 850;
+  font-variation-settings: "wdth" 125;
+  letter-spacing: -.035em;
+}
+.hero-lead {
+  max-width: 38rem; margin: 1.75rem 0 2.25rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem); line-height: 1.5;
+}
+
+/* Cartouche : grille façon bloc-titre de plan */
+.cartouche {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5px;
+  background: var(--ink);
+  border: 1.5px solid var(--ink);
+  max-width: 54rem;
+}
+.cell { background: var(--paper-hi); padding: .6rem .8rem .7rem; }
+.cell-wide { grid-column: span 2; }
+.cell dt {
+  font-size: .8rem; color: var(--steel);
+  font-variation-settings: "wdth" 75; font-weight: 500;
+}
+.cell dd { margin: .1rem 0 0; font-weight: 650; font-variation-settings: "wdth" 95; }
+.cell-wide dd { font-size: 1.15rem; }
+@media (max-width: 720px) {
+  .cartouche { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cell-wide { grid-column: 1 / -1; }
+}
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+.btn {
+  display: inline-block; padding: .65rem 1.1rem;
+  border: 1.5px solid var(--ink); border-radius: 3px;
+  text-decoration: none; font-weight: 650; font-variation-settings: "wdth" 95;
+  background: transparent;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn-solid { background: var(--ink); color: var(--paper); }
+.btn-solid:hover { background: var(--rbf); border-color: var(--rbf); color: #fff; }
+
+/* ---------- Sections ---------- */
+.section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+.section-title {
+  margin: 0 0 .75rem;
+  font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1;
+  font-weight: 800; font-variation-settings: "wdth" 125; letter-spacing: -.025em;
+}
+.section-intro { margin: 0 0 3rem; color: var(--steel); max-width: 40rem; }
+.sub-title {
+  margin: 4rem 0 0; padding-bottom: .6rem;
+  font-size: 1.35rem; font-weight: 750; font-variation-settings: "wdth" 110;
+  border-bottom: 1.5px solid var(--ink);
+}
+.prose { font-size: 1.15rem; line-height: 1.65; margin: 0; }
+
+/* Bande sombre unique : aviation */
+.section-alt { background: var(--ink); color: var(--paper); }
+.section-alt .section-title { color: var(--paper); }
+
+/* ---------- Fiches projet ---------- */
+.project { padding: 2.25rem 0 3rem; border-top: 1.5px solid var(--ink); }
+.project + .project { margin-top: 1rem; }
+.project-head h3 {
+  margin: 0; font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.1;
+  font-weight: 750; font-variation-settings: "wdth" 112; letter-spacing: -.015em;
+}
+.project-meta { margin: .4rem 0 .9rem; color: var(--steel); font-variation-settings: "wdth" 85; }
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: 0; }
+.tags li {
+  font-size: .82rem; padding: .12rem .5rem;
+  border: 1px solid var(--line); border-radius: 2px;
+  background: var(--paper-hi); font-variation-settings: "wdth" 85; font-weight: 550;
+}
+
+.project-body {
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem); margin-top: 1.75rem; align-items: start;
+}
+@media (max-width: 900px) { .project-body { grid-template-columns: 1fr; } }
+
+.media { display: grid; gap: 1rem; }
+.shot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 520px) { .shot-row { grid-template-columns: 1fr; } }
+.shot { margin: 0; }
+.shot figcaption { font-size: .88rem; color: var(--steel); margin-top: .45rem; font-variation-settings: "wdth" 90; }
+.zoom {
+  display: block; width: 100%; padding: 0; cursor: zoom-in;
+  background: var(--paper-hi); border: 1px solid var(--line); border-radius: 2px;
+}
+.zoom:hover { border-color: var(--ink); }
+
+.sheet { display: grid; gap: 1.4rem; }
+.field h4 {
+  margin: 0 0 .3rem; font-size: .9rem; color: var(--steel);
+  font-weight: 600; font-variation-settings: "wdth" 75;
+  padding-bottom: .25rem; border-bottom: 1px solid var(--line);
+}
+.field p, .field ul { margin: 0; }
+.field ul { padding-left: 1.1rem; }
+.field li + li { margin-top: .4rem; }
+
+/* ---------- Listes compactes ---------- */
+.list { list-style: none; margin: 0; padding: 0; }
+.list-item {
+  display: grid; grid-template-columns: minmax(0, 1fr) 16rem; gap: 2rem;
+  padding: 1.3rem 0; border-bottom: 1px solid var(--line);
+}
+.list-item h4 { margin: 0 0 .3rem; font-size: 1.15rem; font-weight: 700; font-variation-settings: "wdth" 105; }
+.list-item p { margin: 0; max-width: 42rem; }
+.list-tools { color: var(--steel); font-variation-settings: "wdth" 85; text-align: right; }
+@media (max-width: 720px) {
+  .list-item { grid-template-columns: 1fr; gap: .4rem; }
+  .list-tools { text-align: left; }
+}
+
+/* Étiquette « Remove before flight » pour les projets en cours */
+.wip {
+  display: inline-block; vertical-align: .15em; margin-right: .35rem;
+  background: var(--rbf); color: #fff;
+  font-size: .72rem; font-weight: 750; font-variation-settings: "wdth" 80;
+  padding: .1rem .45rem; border-radius: 2px;
+}
+
+/* ---------- Parcours ---------- */
+.timeline { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+.timeline li {
+  display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 1.5rem;
+  padding: 1.2rem 0; border-top: 1px solid var(--line);
+}
+.timeline li:first-child { border-top: 1.5px solid var(--ink); }
+.when { margin: 0; color: var(--steel); font-variation-settings: "wdth" 80; font-weight: 600; }
+.timeline h3 { margin: 0 0 .25rem; font-size: 1.1rem; font-weight: 700; font-variation-settings: "wdth" 100; }
+.timeline p { margin: 0; }
+@media (max-width: 600px) { .timeline li { grid-template-columns: 1fr; gap: .2rem; } }
+
+/* ---------- Contact ---------- */
+.contact { border-top: 1.5px solid var(--ink); }
+.contact-links { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: .6rem; }
+.contact-links a { font-size: 1.15rem; font-weight: 600; font-variation-settings: "wdth" 95; }
+
+.foot { border-top: 1px solid var(--line); padding: 1.5rem 0; color: var(--steel); font-size: .9rem; }
+.foot p { margin: 0; }
+
+/* ---------- Visionneuse d'images ---------- */
+.lightbox {
+  border: 0; padding: 0; background: transparent;
+  max-width: min(96vw, 1600px); max-height: 94vh;
+}
+.lightbox::backdrop { background: rgb(21 32 45 / .88); }
+.lightbox img { max-height: 86vh; width: auto; margin: 0 auto; background: var(--paper-hi); }
+.lightbox form { text-align: right; margin-bottom: .5rem; }
+.lightbox-close {
+  font: inherit; font-weight: 650; cursor: pointer;
+  background: var(--paper); color: var(--ink);
+  border: 0; border-radius: 3px; padding: .4rem .9rem;
+}

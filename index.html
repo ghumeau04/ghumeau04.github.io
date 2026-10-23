@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gauthier Humeau · Ingénieur systèmes</title>
+<meta name="description" content="Portfolio de Gauthier Humeau, élève-ingénieur systèmes à l'IPSA : projets en asservissement, systèmes embarqués, traitement de données temps réel et aéronautique.">
+<link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>
+  // Langue choisie avant l'affichage, pour éviter un clignotement FR → EN
+  (function () {
+    var lang = 'fr';
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'en' || q === 'fr') lang = q;
+      else if (localStorage.getItem('lang') === 'en') lang = 'en';
+    } catch (e) {}
+    document.documentElement.lang = lang;
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip" href="#projets"><span data-l="fr">Aller aux projets</span><span data-l="en">Skip to projects</span></a>
+
+<header class="bar">
+  <nav class="bar-inner" aria-label="Navigation principale">
+    <a class="bar-name" href="#top">G. Humeau</a>
+    <ul class="bar-links">
+      <li><a href="#projets"><span data-l="fr">Projets</span><span data-l="en">Projects</span></a></li>
+      <li><a href="#aviation">Aviation</a></li>
+      <li><a href="#parcours"><span data-l="fr">Parcours</span><span data-l="en">Background</span></a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="lang" id="lang-toggle" type="button" role="switch" aria-checked="false" aria-label="Language / Langue">
+      <span class="lang-opt" data-opt="fr">FR</span><span class="lang-opt" data-opt="en">EN</span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ EN-TÊTE : cartouche de plan ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="hero-name">Gauthier<br>Humeau</h1>
+      <p class="hero-lead">
+        <span data-l="fr">Élève-ingénieur en dernière année à l'IPSA, filière Systèmes. Je cherche un stage de fin d'études technique en systèmes ou systèmes embarqués, de préférence dans l'aéronautique.</span>
+        <span data-l="en">Final-year engineering student at IPSA (Systems track). I am looking for a hands-on final-year internship in systems or embedded systems, ideally in aerospace.</span>
+      </p>
+
+      <dl class="cartouche">
+        <div class="cell cell-wide">
+          <dt><span data-l="fr">Recherche</span><span data-l="en">Looking for</span></dt>
+          <dd><span data-l="fr">Stage de fin d'études : systèmes / systèmes embarqués</span><span data-l="en">Final-year internship: systems / embedded systems</span></dd>
+        </div>
+        <div class="cell">
+          <dt><span data-l="fr">À partir de</span><span data-l="en">Starting</span></dt>
+          <dd><span data-l="fr">Février 2027</span><span data-l="en">February 2027</span></dd>
+        </div>
+        <div class="cell">
+          <dt><span data-l="fr">Durée</span><span data-l="en">Duration</span></dt>
+          <dd><span data-l="fr">6 mois</span><span data-l="en">6 months</span></dd>
+        </div>
+        <div class="cell">
+          <dt><span data-l="fr">École</span><span data-l="en">School</span></dt>
+          <dd>IPSA, Paris</dd>
+        </div>
+        <div class="cell">
+          <dt><span data-l="fr">Langues</span><span data-l="en">Languages</span></dt>
+          <dd><span data-l="fr">Français, anglais C2</span><span data-l="en">French, English C2</span></dd>
+        </div>
+        <div class="cell">
+          <dt><span data-l="fr">Mobilité</span><span data-l="en">Mobility</span></dt>
+          <dd><span data-l="fr">France et international</span><span data-l="en">France and abroad</span></dd>
+        </div>
+        <div class="cell">
+          <dt><span data-l="fr">Pilote</span><span data-l="en">Pilot</span></dt>
+          <dd><span data-l="fr">BIA, PPL en cours</span><span data-l="en">BIA, PPL in training</span></dd>
+        </div>
+      </dl>
+
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="cv/CV_Gauthier_Humeau_FR.pdf" data-cv>
+          <span data-l="fr">Télécharger mon CV</span><span data-l="en">Download my resume</span>
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/gauthierhumeau" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/ghumeau04" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJETS ============ -->
+  <section class="section" id="projets" aria-labelledby="projets-titre">
+    <div class="wrap">
+      <h2 class="section-title" id="projets-titre"><span data-l="fr">Projets</span><span data-l="en">Projects</span></h2>
+      <p class="section-intro">
+        <span data-l="fr">Trois projets documentés, avec ce que j'ai fait et ce que ça a donné. Cliquez sur une image pour l'agrandir.</span>
+        <span data-l="en">Three documented projects, with what I did and how it turned out. Click any image to enlarge it.</span>
+      </p>
+
+      <!-- Projet : train d'atterrissage -->
+      <article class="project">
+        <header class="project-head">
+          <h3><span data-l="fr">Asservissement d'un train d'atterrissage</span><span data-l="en">Landing gear control system</span></h3>
+          <p class="project-meta"><span data-l="fr">IPSA, projet individuel, avril 2026</span><span data-l="en">IPSA, individual project, April 2026</span></p>
+          <ul class="tags"><li>Simcenter Amesim</li><li>MATLAB / Simulink</li><li><span data-l="fr">Hydraulique</span><span data-l="en">Hydraulics</span></li><li>PID</li></ul>
+        </header>
+        <div class="project-body">
+          <div class="media">
+            <figure class="shot shot-main">
+              <button class="zoom" type="button" data-full="img/gear-step.webp">
+                <img src="img/gear-step.webp" width="963" height="607" alt="Réponse indicielle en boucle fermée : déplacement du vérin jusqu'à 0,5 m" loading="lazy">
+              </button>
+              <figcaption><span data-l="fr">Réponse en boucle fermée : consigne de 500 mm atteinte avec 9 % de dépassement.</span><span data-l="en">Closed-loop step response: 500 mm setpoint reached with 9% overshoot.</span></figcaption>
+            </figure>
+            <figure class="shot">
+              <button class="zoom" type="button" data-full="img/gear-schema.webp">
+                <img src="img/gear-schema.webp" width="1295" height="356" alt="Schéma Amesim : servovalve, vérin, régulateur PID et cinématique du train" loading="lazy">
+              </button>
+              <figcaption><span data-l="fr">Modèle Amesim : servovalve, vérin, PID et cinématique du train.</span><span data-l="en">Amesim model: servo valve, actuator, PID and gear linkage.</span></figcaption>
+            </figure>
+          </div>
+          <div class="sheet">
+            <div class="field">
+              <h4><span data-l="fr">Le problème</span><span data-l="en">The problem</span></h4>
+              <p><span data-l="fr">Sortir un train d'atterrissage de 290 kg·m² d'inertie avec un vérin hydraulique, vite et sans abîmer la structure.</span><span data-l="en">Deploy a landing gear with 290 kg·m² of inertia using a hydraulic actuator, quickly and without damaging the structure.</span></p>
+            </div>
+            <div class="field">
+              <h4><span data-l="fr">Ce que j'ai fait</span><span data-l="en">What I did</span></h4>
+              <ul>
+                <li><span data-l="fr">Dimensionné le vérin : 25 kN sous 206 bar, soit un alésage de 41,7 mm, et 58 L/min pour atteindre 800 mm/s.</span><span data-l="en">Sized the actuator: 25 kN at 206 bar, i.e. a 41.7 mm bore, and 58 L/min to reach 800 mm/s.</span></li>
+                <li><span data-l="fr">Modélisé le système complet sous Amesim : servovalve, vérin, bras de levier et raideurs.</span><span data-l="en">Modelled the full system in Amesim: servo valve, actuator, lever arms and stiffnesses.</span></li>
+                <li><span data-l="fr">Testé en boucle ouverte, puis réglé un PID en boucle fermée sur un échelon et une sinusoïde.</span><span data-l="en">Tested open loop, then tuned a closed-loop PID on step and sine inputs.</span></li>
+              </ul>
+            </div>
+            <div class="field">
+              <h4><span data-l="fr">Résultat</span><span data-l="en">Result</span></h4>
+              <p><span data-l="fr">Course de 500 mm atteinte avec 9 % de dépassement. J'ai identifié l'origine des oscillations de force (compressibilité de l'huile, absence de frottement) et proposé un profil de mouvement ou une commande anticipative pour aller plus loin.</span><span data-l="en">500 mm stroke reached with 9% overshoot. I traced the force oscillations to oil compressibility and the lack of friction, and proposed motion profiling or feed-forward control as next steps.</span></p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projet : fraude temps réel -->
+      <article class="project">
+        <header class="project-head">
+          <h3><span data-l="fr">Détection de fraude bancaire en temps réel</span><span data-l="en">Real-time bank fraud detection</span></h3>
+          <p class="project-meta"><span data-l="fr">HUST Hanoï, projet de groupe (6 étudiants), janvier 2026, remis en service en octobre 2026</span><span data-l="en">HUST Hanoi, group project (6 students), January 2026, brought back online in October 2026</span></p>
+          <ul class="tags"><li>Apache Kafka</li><li>Apache Spark</li><li>MongoDB</li><li>Docker</li><li>Prometheus</li><li>Grafana</li></ul>
+        </header>
+        <div class="project-body">
+          <div class="media">
+            <figure class="shot shot-main">
+              <button class="zoom" type="button" data-full="img/fraud-dash.webp">
+                <img src="img/fraud-dash.webp" width="1600" height="609" alt="Tableau de bord Dash : proportion de blanchiment, transactions par catégorie et par ville" loading="lazy">
+              </button>
+              <figcaption><span data-l="fr">Tableau de bord temps réel : part des fraudes, catégories et villes.</span><span data-l="en">Real-time dashboard: fraud share, categories and cities.</span></figcaption>
+            </figure>
+            <div class="shot-row">
+              <figure class="shot">
+                <button class="zoom" type="button" data-full="img/fraud-alerts.webp">
+                  <img src="img/fraud-alerts.webp" width="685" height="357" alt="Grafana : fraudes détectées par minute" loading="lazy">
+                </button>
+                <figcaption><span data-l="fr">Fraudes détectées par minute (Grafana).</span><span data-l="en">Frauds detected per minute (Grafana).</span></figcaption>
+              </figure>
+              <figure class="shot">
+                <button class="zoom" type="button" data-full="img/fraud-spark.webp">
+                  <img src="img/fraud-spark.webp" width="691" height="371" alt="Grafana : 442 alertes de smurfing détectées par Spark" loading="lazy">
+                </button>
+                <figcaption><span data-l="fr">Alertes levées par la règle Spark.</span><span data-l="en">Alerts raised by the Spark rule.</span></figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="sheet">
+            <div class="field">
+              <h4><span data-l="fr">Le problème</span><span data-l="en">The problem</span></h4>
+              <p><span data-l="fr">Repérer une fraude pendant que les transactions arrivent, pas le lendemain, tout en gardant l'historique pour l'analyse.</span><span data-l="en">Catch fraud while transactions are still coming in, not the next day, while keeping the history for analysis.</span></p>
+            </div>
+            <div class="field">
+              <h4><span data-l="fr">Ce que j'ai fait</span><span data-l="en">What I did</span></h4>
+              <ul>
+                <li><span data-l="fr">En groupe : une architecture Lambda où un générateur publie les transactions dans Kafka, Spark les traite en continu et MongoDB stocke les résultats.</span><span data-l="en">As a team: a Lambda architecture where a generator publishes transactions to Kafka, Spark processes them as a stream and MongoDB stores the results.</span></li>
+                <li><span data-l="fr">Seul, en remettant le projet en route sur ma machine : reconstruit l'image Docker de Spark, devenue introuvable, corrigé la règle de détection du smurfing, qui ne pouvait jamais se déclencher sur nos données, et réparé l'export des métriques vers Prometheus.</span><span data-l="en">On my own, when bringing it back up on my machine: rebuilt the Spark Docker image, which had gone missing, fixed the smurfing rule, which could never fire on our data, and repaired the metrics export to Prometheus.</span></li>
+              </ul>
+            </div>
+            <div class="field">
+              <h4><span data-l="fr">Résultat</span><span data-l="en">Result</span></h4>
+              <p><span data-l="fr">Environ 2 000 transactions traitées par minute en local et plus de 400 alertes de smurfing levées par Spark en une dizaine de minutes, suivies en direct dans Grafana.</span><span data-l="en">About 2,000 transactions processed per minute on a laptop and more than 400 smurfing alerts raised by Spark in about ten minutes, monitored live in Grafana.</span></p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projet : Eco-Vision -->
+      <article class="project">
+        <header class="project-head">
+          <h3><span data-l="fr">Eco-Vision : classification d'images satellites</span><span data-l="en">Eco-Vision: satellite image classification</span></h3>
+          <p class="project-meta"><span data-l="fr">HUST Hanoï, projet de groupe (5 étudiants), janvier 2026</span><span data-l="en">HUST Hanoi, group project (5 students), January 2026</span></p>
+          <ul class="tags"><li>Python</li><li>TensorFlow / Keras</li><li>MobileNetV2</li><li>scikit-learn</li><li>Grad-CAM</li><li>Streamlit</li></ul>
+        </header>
+        <div class="project-body">
+          <div class="media">
+            <figure class="shot shot-main">
+              <button class="zoom" type="button" data-full="img/ecovision-map.webp">
+                <img src="img/ecovision-map.webp" width="1600" height="756" alt="Application Eco-Vision : carte du monde cliquable pour classer une zone" loading="lazy">
+              </button>
+              <figcaption><span data-l="fr">On clique sur la carte, le modèle classe la zone en temps réel.</span><span data-l="en">Click on the map and the model classifies the area in real time.</span></figcaption>
+            </figure>
+            <div class="shot-row">
+              <figure class="shot">
+                <button class="zoom" type="button" data-full="img/ecovision-forest.webp">
+                  <img src="img/ecovision-forest.webp" width="910" height="451" alt="Tuile classée forêt avec 100 % de confiance" loading="lazy">
+                </button>
+                <figcaption><span data-l="fr">Forêt, confiance 100 %.</span><span data-l="en">Forest, 100% confidence.</span></figcaption>
+              </figure>
+              <figure class="shot">
+                <button class="zoom" type="button" data-full="img/ecovision-urban.webp">
+                  <img src="img/ecovision-urban.webp" width="875" height="451" alt="Tuile classée urbaine avec 63 % de confiance et 14,7 % d'incertitude" loading="lazy">
+                </button>
+                <figcaption><span data-l="fr">Zone urbaine mêlée de forêt : le modèle signale son incertitude.</span><span data-l="en">Urban area mixed with forest: the model reports its uncertainty.</span></figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="sheet">
+            <div class="field">
+              <h4><span data-l="fr">Le problème</span><span data-l="en">The problem</span></h4>
+              <p><span data-l="fr">Classer automatiquement des images satellites en cinq milieux (eau, ville, forêt, désert, neige) alors que certains se ressemblent beaucoup vus d'en haut.</span><span data-l="en">Automatically classify satellite images into five land types (water, urban, forest, desert, snow) when some of them look very similar from above.</span></p>
+            </div>
+            <div class="field">
+              <h4><span data-l="fr">Ce que nous avons fait</span><span data-l="en">What we did</span></h4>
+              <ul>
+                <li><span data-l="fr">Un CNN MobileNetV2 entraîné avec du bruit capteur et une diffusion atmosphérique simulés, comparé à un Random Forest de référence.</span><span data-l="en">A MobileNetV2 CNN trained with simulated sensor noise and atmospheric scattering, benchmarked against a Random Forest baseline.</span></li>
+                <li><span data-l="fr">Des outils d'explicabilité (Grad-CAM, entropie) et une application Streamlit qui affiche la confiance et l'incertitude de chaque prédiction.</span><span data-l="en">Explainability tools (Grad-CAM, entropy) and a Streamlit app that shows the confidence and uncertainty of every prediction.</span></li>
+              </ul>
+            </div>
+            <div class="field">
+              <h4><span data-l="fr">Résultat</span><span data-l="en">Result</span></h4>
+              <p><span data-l="fr">Le Random Forest atteint 96,9 % sur des données propres mais s'effondre dès qu'on ajoute du bruit. Le CNN plafonne à 79,7 % mais résiste beaucoup mieux, ce qui compte en conditions réelles.</span><span data-l="en">The Random Forest reaches 96.9% on clean data but collapses once noise is added. The CNN tops out at 79.7% but holds up far better, which is what matters in real conditions.</span></p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Autres projets -->
+      <h3 class="sub-title"><span data-l="fr">Autres projets</span><span data-l="en">Other projects</span></h3>
+      <ul class="list">
+        <li class="list-item">
+          <div class="list-main">
+            <h4><span data-l="fr">Exploration autonome multi-robots</span><span data-l="en">Autonomous multi-robot exploration</span></h4>
+            <p><span data-l="fr">Trois robots se partagent l'exploration d'une pièce. J'ai écrit la planification de chemin A* en Python, testée sous Gazebo et RViz.</span><span data-l="en">Three robots share the exploration of a room. I wrote the A* path planning in Python and tested it in Gazebo and RViz.</span></p>
+          </div>
+          <p class="list-tools">ROS2, Gazebo, Python, Linux</p>
+        </li>
+        <li class="list-item">
+          <div class="list-main">
+            <h4><span data-l="fr">Trajectoires Artemis II et Apollo</span><span data-l="en">Artemis II and Apollo trajectories</span></h4>
+            <p><span data-l="fr">Simulation de trajectoires lunaires, puis réglage d'une rentrée atmosphérique pour se poser sur la zone visée.</span><span data-l="en">Lunar trajectory simulation, then tuning an atmospheric re-entry to land on the target area.</span></p>
+          </div>
+          <p class="list-tools">MATLAB</p>
+        </li>
+      </ul>
+
+      <!-- En chantier -->
+      <h3 class="sub-title"><span data-l="fr">En chantier</span><span data-l="en">Work in progress</span></h3>
+      <ul class="list">
+        <li class="list-item">
+          <div class="list-main">
+            <h4><span class="wip"><span data-l="fr">En cours</span><span data-l="en">In progress</span></span> <span data-l="fr">Détecteur de chute libre embarqué</span><span data-l="en">Embedded free-fall detector</span></h4>
+            <p><span data-l="fr">Le logiciel est écrit : des tâches FreeRTOS lisent une centrale inertielle (I2C) et un micro (I2S), détectent la chute et envoient une notification sur le téléphone. Je reconstruis le montage pour filmer une démonstration.</span><span data-l="en">The firmware is done: FreeRTOS tasks read an IMU (I2C) and a microphone (I2S), detect the fall and push a notification to a phone. I am rebuilding the hardware to film a demo.</span></p>
+          </div>
+          <p class="list-tools">ESP32, FreeRTOS, C/C++</p>
+        </li>
+        <li class="list-item">
+          <div class="list-main">
+            <h4><span class="wip"><span data-l="fr">En cours</span><span data-l="en">In progress</span></span> <span data-l="fr">Home cockpit A320 : tiller</span><span data-l="en">A320 home cockpit: tiller</span></h4>
+            <p><span data-l="fr">Commande d'orientation de la roue avant pour mon simulateur, sur Arduino Pro Micro relié au simulateur par MobiFlight, avec des pièces imprimées en 3D.</span><span data-l="en">Nose-wheel steering control for my flight simulator, on an Arduino Pro Micro linked to the sim through MobiFlight, with 3D-printed parts.</span></p>
+          </div>
+          <p class="list-tools">Arduino, MobiFlight, <span data-l="fr">impression 3D</span><span data-l="en">3D printing</span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ AVIATION ============ -->
+  <section class="section section-alt" id="aviation" aria-labelledby="aviation-titre">
+    <div class="wrap narrow">
+      <h2 class="section-title" id="aviation-titre">Aviation</h2>
+      <p class="prose">
+        <span data-l="fr">L'aviation, c'est ce qui m'a fait choisir l'ingénierie. J'ai le BIA, je suis en formation de pilote privé, et j'ai passé un été en atelier à entretenir des monomoteurs : visites, carnets de route, consignes de navigabilité. Je construis aussi, petit à petit, un cockpit d'A320 pour mon simulateur. Voir un avion de l'intérieur, du hangar au manche, change la façon dont on conçoit ses systèmes.</span>
+        <span data-l="en">Aviation is what made me choose engineering. I hold the French aeronautics certificate (BIA), I am training for my private pilot licence, and I spent a summer in a maintenance shop working on single-engine aircraft: inspections, logbooks, airworthiness directives. I am also building an A320 cockpit for my flight simulator, piece by piece. Seeing an aircraft from the hangar to the controls changes the way you design its systems.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ PARCOURS ============ -->
+  <section class="section" id="parcours" aria-labelledby="parcours-titre">
+    <div class="wrap narrow">
+      <h2 class="section-title" id="parcours-titre"><span data-l="fr">Parcours</span><span data-l="en">Background</span></h2>
+      <ol class="timeline">
+        <li>
+          <p class="when"><span data-l="fr">Juin – sept. 2026</span><span data-l="en">Jun – Sep 2026</span></p>
+          <div>
+            <h3><span data-l="fr">Ingénieur d'affaires (stage), Cleeven, Bâle</span><span data-l="en">Business engineer (internship), Cleeven, Basel</span></h3>
+            <p><span data-l="fr">Recrutement d'ingénieurs et de techniciens dans un cabinet de conseil en ingénierie, environ 12 candidats rencontrés par semaine.</span><span data-l="en">Recruiting engineers and technicians for an engineering consultancy, about 12 candidates interviewed per week.</span></p>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span data-l="fr">Sept. 2025 – févr. 2026</span><span data-l="en">Sep 2025 – Feb 2026</span></p>
+          <div>
+            <h3><span data-l="fr">Semestre d'échange, HUST, Hanoï</span><span data-l="en">Exchange semester, HUST, Hanoi</span></h3>
+            <p><span data-l="fr">Computer Science en anglais : data science, big data, cryptographie.</span><span data-l="en">Computer Science taught in English: data science, big data, cryptography.</span></p>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span data-l="fr">Août 2024</span><span data-l="en">Aug 2024</span></p>
+          <div>
+            <h3><span data-l="fr">Stagiaire mécanicien aéronautique</span><span data-l="en">Aircraft maintenance intern</span></h3>
+            <p><span data-l="fr">Maintenance préventive et corrective de monomoteurs sur deux aérodromes de Franche-Comté.</span><span data-l="en">Preventive and corrective maintenance on single-engine aircraft at two airfields in eastern France.</span></p>
+          </div>
+        </li>
+        <li>
+          <p class="when">2022 – 2027</p>
+          <div>
+            <h3><span data-l="fr">Diplôme d'ingénieur, IPSA, Paris</span><span data-l="en">Engineering degree (MSc level), IPSA, Paris</span></h3>
+            <p><span data-l="fr">Filière Systèmes : temps réel, microcontrôleurs, électronique numérique (VHDL), asservissement, avionique.</span><span data-l="en">Systems track: real-time systems, microcontrollers, digital electronics (VHDL), control engineering, avionics.</span></p>
+          </div>
+        </li>
+        <li>
+          <p class="when">2022</p>
+          <div>
+            <h3><span data-l="fr">Bac option internationale, mention Bien</span><span data-l="en">French Baccalaureate, International Option, with honors</span></h3>
+            <p><span data-l="fr">Section internationale américaine, Belfort.</span><span data-l="en">American international section, Belfort.</span></p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact" aria-labelledby="contact-titre">
+    <div class="wrap narrow">
+      <h2 class="section-title" id="contact-titre">Contact</h2>
+      <p class="prose">
+        <span data-l="fr">Un stage à me proposer, ou une question sur un projet ? Écrivez-moi, je réponds vite.</span>
+        <span data-l="en">An internship to offer, or a question about a project? Send me an email, I reply quickly.</span>
+      </p>
+      <ul class="contact-links">
+        <li><a href="mailto:gauthier.humeau@ipsa.fr">gauthier.humeau@ipsa.fr</a></li>
+        <li><a href="https://www.linkedin.com/in/gauthierhumeau" rel="noopener">linkedin.com/in/gauthierhumeau</a></li>
+        <li><a href="https://github.com/ghumeau04" rel="noopener">github.com/ghumeau04</a></li>
+        <li><a href="cv/CV_Gauthier_Humeau_FR.pdf">CV <span data-l="fr">en français</span><span data-l="en">in French</span> (PDF)</a></li>
+        <li><a href="cv/CV_Gauthier_Humeau_EN.pdf"><span data-l="fr">CV en anglais</span><span data-l="en">Resume in English</span> (PDF)</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>© 2026 Gauthier Humeau</p>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Image agrandie">
+  <form method="dialog"><button class="lightbox-close" type="submit"><span data-l="fr">Fermer</span><span data-l="en">Close</span></button></form>
+  <img id="lightbox-img" src="" alt="">
+</dialog>
+
+<script src="main.js"></script>
+</body>
+</html>
